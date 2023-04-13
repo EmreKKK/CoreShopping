@@ -12,7 +12,7 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-7U5RNO4; Database=CoreBlogProject; integrated security=true; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-7U5RNO4; Database=CoreShopping; integrated security=true; TrustServerCertificate=True");
         }
 
 

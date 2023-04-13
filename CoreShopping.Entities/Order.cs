@@ -10,11 +10,11 @@ namespace CoreShopping.Entities
     [Table("Order")] //Attribute ifadesi
     public class Order
     {
-
+        public int Id { get; set; }
     }
 
     public class OrderItem
     {
-
+        public int Id { get; set; }
     }
 }

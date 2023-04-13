@@ -14,5 +14,9 @@ namespace CoreShopping.Entities
         public List<ProductCategory> ProductCategories { get; set; }
         public List<Image> Images { get; set; }
 
+        public Product()
+        {
+            Images = new List<Image>();
+        }
     }
 }

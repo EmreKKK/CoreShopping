@@ -1,0 +1,22 @@
+﻿@using CoreShopping.Entities   
+@model IEnumerable<Product>
+
+    
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @foreach (var item in Model)
+    {
+        <p>@item.Name</p>
+    }
+</head>
+<body>
+</body>
+</html>
