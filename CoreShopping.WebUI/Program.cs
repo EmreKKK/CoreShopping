@@ -3,6 +3,7 @@ using CoreShopping.BusinessLogic.Concrete;
 using CoreShopping.DataAccess.Abstract;
 using CoreShopping.DataAccess.Concrete.EFCore;
 using CoreShopping.DataAccess.Concrete.Memory;
+using CoreShopping.WebUI.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,7 @@ if (!app.Environment.IsDevelopment())
 SeedDatabase.Seed();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.CustomStaticFiles();//
 
 app.UseRouting();
 

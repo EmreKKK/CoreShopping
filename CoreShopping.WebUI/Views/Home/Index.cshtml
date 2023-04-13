@@ -1,21 +1,20 @@
-﻿@model CoreShopping.WebUI.Models.ProductListModel
+﻿@using CoreShopping.WebUI.Models
+@model ProductListModel
 
-    
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    @foreach (var item in Model.Products)
-    {
-        <p>@item.Name</p>
-    }
-</head>
-<body>
-</body>
-</html>
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item">Sci-Fi</li>
+            <li class="list-group-item">Horror</li>
+            <li class="list-group-item">Commedy</li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <partial name="_slider">
+            @foreach (var item in Model.Products )
+            {
+                <p>@item.Name</p>
+            }  
+        </partial>
+    </div>
+</div>
