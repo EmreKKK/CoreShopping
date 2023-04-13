@@ -26,8 +26,8 @@ namespace CoreShopping.DataAccess.Concrete.Memory
             var products = new List<Product>()
             {
                 new Product{ Id = 1,Name="John Wick 4",Price=300,Images={new Image() {ImageUrl="1.jpg" } }},
-                new Product{ Id = 1,Name="Matrix 4",Price=400,Images={new Image() {ImageUrl="2.jpg" } }},
-                new Product{ Id = 1,Name="Avangers 3",Price=500,Images={new Image() {ImageUrl="3.jpg" } }}
+                new Product{ Id = 2,Name="Matrix 4",Price=400,Images={new Image() {ImageUrl="2.jpg" } }},
+                new Product{ Id = 3,Name="Avangers 3",Price=500,Images={new Image() {ImageUrl="3.jpg" } }}
             };
 
             return products;

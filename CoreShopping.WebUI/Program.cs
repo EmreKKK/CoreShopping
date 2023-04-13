@@ -1,6 +1,7 @@
 using CoreShopping.BusinessLogic.Abstract;
 using CoreShopping.BusinessLogic.Concrete;
 using CoreShopping.DataAccess.Abstract;
+using CoreShopping.DataAccess.Concrete.EFCore;
 using CoreShopping.DataAccess.Concrete.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 /////////////////////////////////////////////////////////
 // DEPENDENCY INJECTION
-builder.Services.AddScoped<IProductDAL,MemoryProductDAL>();
+builder.Services.AddScoped<IProductDAL,EFCoreProductDAL>();
 builder.Services.AddScoped<IProductService,ProductManager>();
 
 builder.Services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
@@ -25,6 +26,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+SeedDatabase.Seed();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

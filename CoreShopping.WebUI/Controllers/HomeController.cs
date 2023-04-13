@@ -1,4 +1,5 @@
 ﻿using CoreShopping.BusinessLogic.Abstract;
+using CoreShopping.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreShopping.WebUI.Controllers
@@ -18,7 +19,7 @@ namespace CoreShopping.WebUI.Controllers
         #endregion
         public IActionResult Index()
         {
-            return View(_productService.GetAll());
+            return View(new ProductListModel() { Products = _productService.GetAll() });
         }
     }
 }
