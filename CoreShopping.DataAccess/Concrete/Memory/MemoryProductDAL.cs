@@ -53,7 +53,7 @@ namespace CoreShopping.DataAccess.Concrete.Memory
             throw new NotImplementedException();
         }
 
-        public List<Product> GetProductsByCategory(string category)
+        public List<Product> GetProductsByCategory(string category, int page, int pageSize)
         {
             throw new NotImplementedException();
         }

@@ -37,7 +37,7 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
             }
         }
 
-        public List<Product> GetProductsByCategory(string category)
+        public List<Product> GetProductsByCategory(string category, int page,int pageSize)
         {
             using (var context = new Context())
             {
