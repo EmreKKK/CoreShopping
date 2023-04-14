@@ -18,13 +18,7 @@ namespace CoreShopping.WebUI.Controllers
         {
             return View();
         }
-        public IActionResult List()
-        {
-            return View(new ProductListModel()
-            {
-                Products = _productService.GetAll()
-            });
-        }
+
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -43,17 +37,14 @@ namespace CoreShopping.WebUI.Controllers
                 Product = product,
                 Categories = product.ProductCategories.Select(c => c.Category).ToList()
             });
-
-
-
         }
 
+        [Route("products/{category?}")]
         public IActionResult List(string category)
         {
             return View(new ProductListModel()
             {
                 Products = _productService.GetProductsByCategory(category)
-
             });
         }
     }
