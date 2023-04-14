@@ -32,16 +32,29 @@ namespace CoreShopping.WebUI.Controllers
                 return NotFound();
             }
 
-            Product product = _productService.GetById((int)id);
+            Product product = _productService.GetProductDetails((int)id);
 
-            if(product == null)
+            if (product == null)
             {
                 return NotFound();
             }
-            return View(product);
-            
+            return View(new ProductDetailsModel()
+            {
+                Product = product,
+                Categories = product.ProductCategories.Select(c => c.Category).ToList()
+            });
 
 
+
+        }
+
+        public IActionResult List(string category)
+        {
+            return View(new ProductListModel()
+            {
+                Products = _productService.GetProductsByCategory(category)
+
+            });
         }
     }
 }

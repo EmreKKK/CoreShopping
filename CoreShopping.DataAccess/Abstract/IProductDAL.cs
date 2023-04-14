@@ -10,6 +10,9 @@ namespace CoreShopping.DataAccess.Abstract
 {
     public interface IProductDAL : IRepositoryDAL<Product>
     {
+        List<Product> GetProductsByCategory(string category);
+        Product GetProductDetails(int id);
+
 
     }
 }

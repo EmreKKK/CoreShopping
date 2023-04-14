@@ -43,6 +43,16 @@ namespace CoreShopping.BusinessLogic.Concrete
             return _productDAL.GetById(id);
         }
 
+        public Product GetProductDetails(int id)
+        {
+            return _productDAL.GetProductDetails(id);
+        }
+
+        public List<Product> GetProductsByCategory(string category)
+        {
+            return _productDAL.GetProductsByCategory(category);
+        }
+
         public void Update(Product entity)
         {
             _productDAL.Update(entity);

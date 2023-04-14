@@ -9,7 +9,7 @@ namespace CoreShopping.BusinessLogic.Abstract
 {
     public interface ICategoryService
     {
-        List<Category> GetAll();
+        IEnumerable<Category> GetAll();
         void Create(Category entity);
         void Update(Category entity);
         void Delete(Category entity);

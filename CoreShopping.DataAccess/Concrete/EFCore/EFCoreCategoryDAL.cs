@@ -12,6 +12,6 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
 {
     public class EFCoreCategoryDAL : EFCoreGenericRepository<Category, Context>, ICategoryDAL
     {
-        
+
     }
 }

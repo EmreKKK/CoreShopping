@@ -11,8 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 /////////////////////////////////////////////////////////
 // DEPENDENCY INJECTION
-builder.Services.AddScoped<IProductDAL,EFCoreProductDAL>();
-builder.Services.AddScoped<IProductService,ProductManager>();
+builder.Services.AddScoped<IProductDAL, EFCoreProductDAL>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+
+builder.Services.AddScoped<ICategoryDAL, EFCoreCategoryDAL>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
 builder.Services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
 
@@ -30,14 +33,25 @@ if (!app.Environment.IsDevelopment())
 SeedDatabase.Seed();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+////////////////////////////////////////////////////////////////
 app.CustomStaticFiles();//
-
+////////////////////////////////////////////////////////////////
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapRazorPages();
 ////////////////////////////////// PROJENÝN SONLAMA NOKTASI
-app.UseEndpoints(endpoints => { endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}"); }) ;
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+
+    endpoints.MapControllerRoute(
+    name: "products",
+    pattern: "products/{category?}",
+    defaults: new { controller = "Shop", action = "List" }
+     );
+});
+
 //////////////////////////////////
 app.Run();

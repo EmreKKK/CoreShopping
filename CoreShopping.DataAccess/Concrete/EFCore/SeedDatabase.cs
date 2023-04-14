@@ -27,8 +27,10 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
                 }
                 if (context.Products.Count() == 0)
                 {
-                    context.Products.AddRange(Products);    
+                    context.Products.AddRange(Products);
+                    context.AddRange(ProductCategory);
                 }
+
                 context.SaveChanges();
             }
 
@@ -36,8 +38,9 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
         private static Category[] Categories =
         {
             new Category(){Name="Sci-Fi"},
-            new Category(){Name="Horror"},
+            new Category(){Name="Action"},
             new Category(){Name="Commedy"},
+
         };
         private static Product[] Products =
         {
@@ -52,6 +55,15 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
             new Product{ Name="Puss in Boots: The Last Wish",Description = "Cat with pretty boots",Price=800,
                 Images={new Image() { ImageUrl = "13.jpg" },new Image() { ImageUrl = "14.jpg" },new Image() { ImageUrl = "15.jpg" } }}
 
+        };
+
+        private static ProductCategory[] ProductCategory =
+        {
+            new ProductCategory(){Product=Products[0],Category=Categories[1]},
+            new ProductCategory(){Product=Products[1],Category=Categories[0]},
+            new ProductCategory(){Product=Products[2],Category=Categories[1]},
+            new ProductCategory(){Product=Products[3],Category=Categories[2]},
+            new ProductCategory(){Product=Products[4],Category=Categories[2]},
         };
     }
 }

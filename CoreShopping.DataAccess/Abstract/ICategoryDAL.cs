@@ -10,6 +10,6 @@ namespace CoreShopping.DataAccess.Abstract
 {
     public interface ICategoryDAL:IRepositoryDAL<Category>
     {
-
+        
     }
 }

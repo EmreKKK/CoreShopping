@@ -11,7 +11,9 @@ namespace CoreShopping.BusinessLogic.Abstract
     public interface IProductService
     {
         Product GetById(int id);
-        List<Product> GetAll(Expression<Func<Product,bool>>filter=null);
+        List<Product> GetAll(Expression<Func<Product, bool>> filter = null);
+        List<Product> GetProductsByCategory(string category);
+        Product GetProductDetails(int id);
         void Create(Product entity);
         void Update(Product entity);
         void Delete(Product entity);
