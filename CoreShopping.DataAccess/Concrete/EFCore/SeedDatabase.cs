@@ -10,7 +10,7 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
 {
     public static class SeedDatabase
     {
-        public static void Seed()
+        public static void Seed() // Eğer migration uygulanmamış ise aşağıdaki fake dataları oluşturur!!!!!! 
         {
             var context = new Context();
 

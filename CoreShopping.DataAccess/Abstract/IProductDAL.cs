@@ -10,6 +10,6 @@ namespace CoreShopping.DataAccess.Abstract
 {
     public interface IProductDAL : IRepositoryDAL<Product>
     {
-        IEnumerable<Product> GetPopularProducts();
+
     }
 }

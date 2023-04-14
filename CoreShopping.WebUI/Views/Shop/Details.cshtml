@@ -1,0 +1,56 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="~/img/@Model.Images[0].ImageUrl" alt="@Model.Name" class="img-fluid" id="imageBox" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="col-md-4 product-small-img">
+                    <img src="~/img/@Model.Images[i].ImageUrl" alt="@Model.Name" class="img-fluid" onclick="myFunction(this)" />
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h1 class="mb-3">
+            @Model.Name
+        </h1>
+        <hr />
+ @*       @foreach (Category item in Model.Categories)
+        {
+            <a href="#" class="btn btn-link p-0 mb-3">@item.Name</a>
+        }*@
+
+        <div class="mb-3">
+            <h4 class="text-primary mb-3">
+                @Model.Price ₺
+            </h4>
+            <button type="submit" class="btn btn-primary btn-lg">Add To Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p class="p-3">
+            @Model.Description
+        </p>
+    </div>
+</div>
+
+<script>
+    function myFunction(smallImg){
+        var fullImg = document.getElementById("imageBox");
+        fullImg.src = smallImg.src 
+    }
+
+</script>
