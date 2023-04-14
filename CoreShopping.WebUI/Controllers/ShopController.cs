@@ -45,8 +45,16 @@ namespace CoreShopping.WebUI.Controllers
             const int pageSize = 3;
             return View(new ProductListModel()
             {
+                PageInfo = new PageInfo()
+                {
+                    TotalItems= _productService.GetCountByCategory(category),
+                    CurrentPage=page,
+                    CurrentCategory=category,
+                    ItemsPerPage=pageSize
+                },
+
                 Products = _productService.GetProductsByCategory(category,page,pageSize )
-            });
+            });;
         }
     }
 }

@@ -43,6 +43,11 @@ namespace CoreShopping.BusinessLogic.Concrete
             return _productDAL.GetById(id);
         }
 
+        public int GetCountByCategory(string category)
+        {
+            return _productDAL.GetCountByCategory(category);
+        }
+
         public Product GetProductDetails(int id)
         {
             return _productDAL.GetProductDetails(id);

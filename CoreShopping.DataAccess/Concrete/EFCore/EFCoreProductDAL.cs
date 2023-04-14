@@ -15,6 +15,25 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
     //Abstract Klasörü içerisindeki Interface'deki imza komutlar miras alınarak aşağıya implement edildi.  EntityFramework komutlarını kullanarak methodların içleri dolduruldu. Farklı bir yapı kullanarak işlem yapmak için farklı bir klasör açılarak onun içerisinde yapılabilir. Mesela MySQL gibi
 
     {
+        public int GetCountByCategory(string category)
+        {
+
+            using (var context = new Context())
+            {
+                var products = context.Products.Include("Images").AsQueryable();
+
+                if (!string.IsNullOrEmpty(category))
+                {
+                    products = products.Include(i => i.ProductCategories)
+                                       .ThenInclude(i => i.Category)
+                                       .Where(i => i.ProductCategories.Any(a => a.Category.Name.ToLower()
+                                       == category.ToLower()));
+                }
+
+                return products.Count();
+            }
+        }
+
         //public Product GetById(int id) // Products içerindeki resimleri new leyerek listeye almıştık. Bu sebeple Productlar details sayfasında çağırırken images ler gelmiyor. Bu sebeple Generic methodlar dışında EFCoreProductDAL içerisine özellikle Product tipinde bir method tanımladık ve database'deki Product tablosuna Image tablosunu dahil ederek getirmesini istedik.
 
         //{
@@ -50,6 +69,7 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
                                        .Where(i => i.ProductCategories.Any(a => a.Category.Name.ToLower()
                                        == category.ToLower()));
                 }
+
                 return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
             }
         }
