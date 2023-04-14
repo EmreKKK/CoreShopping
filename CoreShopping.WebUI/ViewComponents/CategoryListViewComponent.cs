@@ -16,6 +16,7 @@ namespace CoreShopping.WebUI.ViewComponents
         {
             return View(new CategoryListViewModel()
             {
+                SelectedCategory = RouteData.Values["category"]?.ToString(), // ? null değilse
                 Categories =_categoryService.GetAll().ToList(),
             });
         }

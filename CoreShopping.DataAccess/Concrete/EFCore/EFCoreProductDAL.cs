@@ -50,7 +50,7 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
                                        .Where(i => i.ProductCategories.Any(a => a.Category.Name.ToLower()
                                        == category.ToLower()));
                 }
-                return products.ToList();
+                return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
             }
         }
     }
