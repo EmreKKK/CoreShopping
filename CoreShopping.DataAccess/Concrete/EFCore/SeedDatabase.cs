@@ -43,7 +43,7 @@ namespace CoreShopping.DataAccess.Concrete.EFCore
         {
             new Product{ Name="John Wick 4",Description = "Kill with f*** pencil!!!",Price=300,
                 Images={ new Image() { ImageUrl = "1.jpg" },new Image() { ImageUrl = "2.jpg" },new Image() { ImageUrl = "3.jpg" } }},
-            new Product{ Name="Matrix 4",Description = "Neo comeback!!! (with Triniyt)",Price=400,
+            new Product{ Name="Matrix 4",Description = "Neo comeback!!! (with Trinity)",Price=400,
                 Images={new Image() { ImageUrl = "4.jpg" },new Image() { ImageUrl = "5.jpg" },new Image() { ImageUrl = "6.jpg" } }},
             new Product{ Name="Avangers 3",Description = "Heroes with pretty costumes",Price=500,
                 Images={new Image() { ImageUrl = "7.jpg" },new Image() { ImageUrl = "8.jpg" },new Image() { ImageUrl = "9.jpg" } }},
